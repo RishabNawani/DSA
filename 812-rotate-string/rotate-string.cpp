@@ -2,6 +2,7 @@ class Solution {
 public:
     bool rotateString(string s, string goal) {
         if(s.length()!=goal.length()) return false;
+        if(s==goal) return true;
         for(int j=0;j<s.length();j++){
             bool matchh=true;
             for(int l=0; l<s.length(); l++){
