@@ -1,7 +1,7 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        /*
+        
         int a=s.length();
         std::string ans="";
         std::reverse(s.begin(),s.end());
@@ -16,9 +16,9 @@ public:
             if(word.length()>0) ans+=" "+word;;
         }
         return ans.substr(1);
-*/
 
-        
+
+/*       
         int left =0;
         int right=s.length()-1;
         std::string temp= "";
@@ -40,5 +40,6 @@ public:
             temp="";
         }
         return ans;
+        */
     }
 };
