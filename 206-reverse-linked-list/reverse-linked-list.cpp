@@ -12,6 +12,19 @@ class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
 
+        if(head==NULL || head->next==NULL){
+            return head;
+        }
+
+        ListNode* newheadd= reverseList(head->next);
+        ListNode* front= head->next;
+        front->next=head;
+        head->next=NULL;
+
+        return newheadd;
+
+    /*
+
         ListNode* prev=NULL;
         ListNode* temp=head;
         while(temp!=NULL){
@@ -22,6 +35,7 @@ public:
         }
 
         return prev;
+    */
 
 /*
         std::vector<int> storee;
