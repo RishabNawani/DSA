@@ -11,6 +11,40 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
+
+        ListNode* slow=head;
+        ListNode* fast=head;
+
+        while(fast!=NULL && fast->next!=NULL){
+            fast=fast->next->next;
+            slow=slow->next;
+        }
+
+        ListNode* prev=NULL;
+        ListNode* temp=slow;
+        while(temp!=NULL){
+            ListNode* front=temp->next;
+            temp->next=prev;
+            prev=temp;
+            temp=front;
+        }
+
+        ListNode* newww=prev;
+
+        ListNode* first=head;
+        ListNode* second=newww;
+
+        while(second!=NULL){
+            if(first->val!=second->val){
+                return false;
+            }
+            first=first->next;
+            second=second->next;
+        }
+        return true;
+
+        
+/*
         std::vector<int> storee;
 
         ListNode* ptr= head;
@@ -44,5 +78,7 @@ public:
         }
 
         return true;
+
+*/
     }
 };
