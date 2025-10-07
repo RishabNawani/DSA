@@ -29,10 +29,8 @@ public:
             temp=front;
         }
 
-        ListNode* newww=prev;
-
         ListNode* first=head;
-        ListNode* second=newww;
+        ListNode* second=prev;
 
         while(second!=NULL){
             if(first->val!=second->val){
