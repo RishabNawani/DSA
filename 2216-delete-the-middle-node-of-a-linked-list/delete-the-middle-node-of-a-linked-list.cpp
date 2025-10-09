@@ -14,6 +14,19 @@ public:
         ListNode* fast=head;
         ListNode* slow=head;
         ListNode* prev=head;
+        if(fast==NULL || fast->next==NULL) return NULL;
+        while(fast!=NULL && fast->next!=NULL){
+            fast=fast->next->next;
+            prev=slow;
+            slow=slow->next;
+        }
+
+        prev->next=slow->next;
+        delete slow;
+        return head;
+
+
+        /*
         int i=0;
         if(fast==NULL || fast->next==NULL) return NULL;
 
@@ -29,6 +42,8 @@ public:
         prev->next=slow->next;
         delete slow;
         return head;
+
+        */
 
     }
 };
