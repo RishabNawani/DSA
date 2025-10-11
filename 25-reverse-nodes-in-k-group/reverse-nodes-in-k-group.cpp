@@ -11,7 +11,9 @@
 class Solution {
 public:
 
+/*
     ListNode* reversee(ListNode* head){
+        
         ListNode* grphead=head;
         ListNode* prev=NULL;
         while(grphead!=NULL){
@@ -31,8 +33,9 @@ public:
         }
         return temp;
     }
+*/
     ListNode* reverseKGroup(ListNode* head, int k) {
-
+/*
         ListNode* temp=head;
         ListNode* prevheadd=NULL;
         while(temp!=NULL){
@@ -60,8 +63,8 @@ public:
 
         return head;
 
+*/
 
-/*
 
         if(head==NULL || k==1) return head;
         int i=0;
@@ -104,6 +107,6 @@ public:
             prevgrptail->next=curr;
         }
         return prevgrphead;
-*/
+
     }
 };
