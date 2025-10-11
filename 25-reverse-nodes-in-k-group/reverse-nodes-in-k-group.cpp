@@ -10,7 +10,58 @@
  */
 class Solution {
 public:
+
+    ListNode* reversee(ListNode* head){
+        ListNode* grphead=head;
+        ListNode* prev=NULL;
+        while(grphead!=NULL){
+            ListNode* front=grphead->next;
+            grphead->next=prev;
+            prev=grphead;
+            grphead=front;
+        }
+        return prev;
+    }
+
+    ListNode* getkthnode(ListNode* temp, int k){
+        k--;
+        while(temp!=NULL && k>0){
+            temp=temp->next;
+            k--;
+        }
+        return temp;
+    }
     ListNode* reverseKGroup(ListNode* head, int k) {
+
+        ListNode* temp=head;
+        ListNode* prevheadd=NULL;
+        while(temp!=NULL){
+            ListNode* kthnode=getkthnode(temp,k);
+            if(kthnode==NULL){
+                if(prevheadd) prevheadd->next=temp;
+                break;
+            }
+
+            ListNode* next=kthnode->next;
+            kthnode->next=NULL;
+
+            reversee(temp);
+            if(temp==head){
+                head=kthnode;
+            }
+            else{
+                prevheadd->next=kthnode;
+            }
+
+            prevheadd=temp;
+            temp=next;
+
+        }
+
+        return head;
+
+
+/*
 
         if(head==NULL || k==1) return head;
         int i=0;
@@ -53,6 +104,6 @@ public:
             prevgrptail->next=curr;
         }
         return prevgrphead;
-
+*/
     }
 };
