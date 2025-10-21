@@ -6,7 +6,7 @@ private:
             return;
         }
 
-        if(n<=0 || res.size()>k){
+        if(n<=0 && res.size()!=k){
             return;
         }
 
