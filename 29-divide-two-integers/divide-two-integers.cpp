@@ -26,10 +26,27 @@ public:
         d = abs(d);
         
         // Variable to store the answer and sum
-        long long ans = 0, sum = 0;
+        long long ans = 0; 
+        ///sum = 0;
+
+        while(n>=d){
+            int cnt=0;
+            while(n>=(d<<(cnt+1))){
+                cnt++;
+            }
+            ans+=(1<<cnt);
+            n-=n-(n-(d<<cnt));
+        }
+
+        if(ans>=INT_MAX && isPositive==true) return INT_MAX;
+        if(ans>=INT_MAX && isPositive==false) return -1*INT_MAX;
+
+        return isPositive?ans:-1*ans;
+        
         
         /* Looping while sum added to divisor is
         less than or equal to divisor */
+        /*
         while(sum + d <= n) {
             
             // Increment the count
@@ -43,25 +60,11 @@ public:
             return INT_MAX;
         if(ans > INT_MAX && !isPositive)
             return INT_MIN;
-        
+        */
         /* Returning the quotient 
         with proper sign */
+        /*
         return isPositive ? ans : -1*ans;
+    */
     }
 };
-
-    /*
-            int cnt=0;
-            while(n>=(d<<(cnt+1))){
-                cnt++;
-            }
-            ans+=(1<<cnt);
-            n-=n-(d<<cnt);
-        }
-
-        if(ans>=INT_MAX && isposi==true) return INT_MAX;
-        if(ans>=INT_MAX && isposi==false) return INT_MIN;
-
-        return isposi?ans:-1*ans;
-
-*/ 
