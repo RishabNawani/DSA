@@ -1,6 +1,6 @@
 class Solution {
 public:
-
+/*
     int largee(vector<int>& heights){
         stack<int> st;
         heights.push_back(0);
@@ -18,7 +18,7 @@ public:
         }
         return maxx;
     }
-/*
+*/
     int lhist(int r,vector<vector<int>>& pree){
         int large=0;
         
@@ -36,11 +36,12 @@ public:
         }
         return large;
     }
-*/
+
     int maximalRectangle(vector<vector<char>>& matrix) {
+        
         int m=matrix.size();
         int n=matrix[0].size();
-
+/*
         vector<int> heightss(n,0);
         int maxxx=0;
 
@@ -52,7 +53,7 @@ public:
             maxxx=max(maxxx,largee(heightss));
         }
         return maxxx;
-        /*
+        */
         vector<vector<int>> presum(m,vector<int>(n,0));
         for(int i=0; i<matrix.size();i++){
             int sum=0;
@@ -68,6 +69,6 @@ public:
         }
 
         return maxx;
-        */
+        
     }
 };
