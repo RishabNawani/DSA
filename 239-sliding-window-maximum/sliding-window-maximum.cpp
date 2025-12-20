@@ -21,7 +21,7 @@ public:
         }
         
         return result;
-        /*
+        
         int m = nums.size();
         int pairs = m-k+1;
         vector<int> storage;
@@ -35,7 +35,7 @@ public:
 
         return storage;
 
-
+/*
         vector<int> st;
         int pt=0;
         while(pt<=(nums.size()-k)){
@@ -48,7 +48,7 @@ public:
         }
         return st;
 
-*/
+
 
         stack<int> st;
         int pt=0;
@@ -68,6 +68,6 @@ public:
         std::reverse(stt.begin(),stt.end());
 
         return stt;
-        
+        */
     }
 };
