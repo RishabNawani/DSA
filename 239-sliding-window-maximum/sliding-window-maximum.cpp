@@ -48,7 +48,7 @@ public:
         }
         return st;
 
-
+*/
 
         stack<int> st;
         int pt=0;
@@ -68,6 +68,6 @@ public:
         std::reverse(stt.begin(),stt.end());
 
         return stt;
-        */
+        
     }
 };
