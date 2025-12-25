@@ -1,6 +1,6 @@
 class Solution {
 public:
-/*
+
     int att(vector<int>& nums,int goal){
         if(goal<0) return 0;
         int i=0;
@@ -33,10 +33,10 @@ public:
         return count;
 
     }
-    */
+    
     int numSubarraysWithSum(vector<int>& nums, int goal) {
-        ///return (att(nums,goal)-att(nums,goal-1));
-
+        return (att(nums,goal)-att(nums,goal-1));
+/*
         unordered_map<int,int> summm;
 
         int count=0; int sum=0;
@@ -53,5 +53,6 @@ public:
         }
 
         return count;
+        */
     }
 };
