@@ -9,7 +9,7 @@ public:
         for(int num: hand){
             ff[num]++;
         }
-/*
+
         auto it = ff.begin();
 
         while(it!=ff.end()){
@@ -29,8 +29,8 @@ public:
             
         }
         return true;
-*/
 
+/*
         while(!ff.empty()){
             int curr=ff.begin()->first;
 
@@ -43,5 +43,6 @@ public:
             }
         }
         return true;
+        */
     }
 };
