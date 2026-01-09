@@ -11,7 +11,29 @@ public:
     }
 */
     int jump(vector<int>& nums) {
-       // return(minn(0,0,nums));
+        int jumpp=0;
+        int far=0;
+        int curr=0;
+
+        for(int i=0;i<nums.size()-1;i++){
+            far=max(far,i+nums[i]);
+
+            if(i==curr){
+                jumpp++;
+                curr=far;
+            }
+
+        }
+
+        return jumpp;
+
+
+
+
+
+
+
+       /* return(minn(0,0,nums));
         int jumpp=0;
         int l=0;
         int r=0;
@@ -24,6 +46,6 @@ public:
             }
         }
         return jumpp;
-
+        */
     }
 };
