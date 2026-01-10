@@ -2,7 +2,7 @@ class Solution {
 public:
 
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
-        /*
+        
         vector<vector<int>> ress;
 
         int i=0;
@@ -28,7 +28,7 @@ public:
         return ress;
 
 
-*/
+
 
         /*
 the mistakes in my code->( my approach was correct , just had some mistakes in it )
@@ -77,6 +77,8 @@ and infinite loop risk too.
         }
         return ans;
 */
+
+/*
         vector<vector<int>> anss;
         int n = intervals.size();
         int i = 0;
@@ -108,6 +110,7 @@ and infinite loop risk too.
         }
 
         return ans;
+        */
 
     }
 };
