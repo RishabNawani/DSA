@@ -9,7 +9,19 @@ public:
 
         int lastt=intervals[0][1];
 
-        int cnt=1;
+        int cnt=0;
+
+        for(int i=1;i<n;i++){
+            if(lastt>intervals[i][0]){
+                cnt++;
+            }
+            else{
+                lastt=intervals[i][1];
+            }
+        }
+
+        return cnt;
+        /*
         for(int i=1;i<n;i++){
             if(intervals[i][0]>=lastt){
                 cnt++;
@@ -18,5 +30,6 @@ public:
         }
 
         return n-cnt;
+        */
     }
 };
