@@ -20,7 +20,38 @@ public:
     }
 */
     vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> pos;
+        TreeNode* curr=root;
+        stack<TreeNode*> stt;
 
+        while(!stt.empty() || curr!=nullptr){
+            if(curr!=nullptr){
+                stt.push(curr);
+                curr=curr->left;
+            }
+            else{
+                TreeNode* temp=stt.top()->right;
+
+                if(temp==nullptr){
+                    temp=stt.top();
+                    stt.pop();
+                    pos.push_back(temp->val);
+
+                    while(!stt.empty() && temp==stt.top()->right){
+                        temp=stt.top();
+                        stt.pop();
+                        pos.push_back(temp->val);
+                    }
+                }
+
+                else{
+                    curr=temp;
+                }
+            }
+        }
+
+        return pos;
+/*
         vector<int> poss;
         stack<TreeNode*> st1 , st2;
         if(root==NULL) return poss;
@@ -42,6 +73,9 @@ public:
             st2.pop();
         }
         return poss;
+
+*/
+
         /*
         vector<int> rrr;
         poss(root,rrr);
