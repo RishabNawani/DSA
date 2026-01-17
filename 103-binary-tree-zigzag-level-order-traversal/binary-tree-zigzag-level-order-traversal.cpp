@@ -16,24 +16,34 @@ public:
         if(root==NULL) return ansss;
         queue<TreeNode*> qq;
         qq.push(root);
-        bool cnt=true;
+        ///bool cnt=true;
+        int cnt=0;
         while(!qq.empty()){
 
             int sizee=qq.size();
-            vector<int> ans(sizee);
+            vector<int> ans;
         
             for(int i=0;i<sizee;i++){
                 TreeNode* q=qq.front();
                 qq.pop();
-
+/*
                 int ind=cnt? i: sizee-i-1;
                 ans[ind]=q->val;
+*/
 
                 if(q->left!=NULL) qq.push(q->left);
                 if(q->right!=NULL) qq.push(q->right);
+                ans.push_back(q->val);
                 
             }
-            cnt=!cnt;
+            if(cnt%2==1){
+                reverse(ans.begin(),ans.end());
+            }
+
+            cnt++;
+
+
+            /// cnt=!cnt;
             
             ansss.push_back(ans);
         }
