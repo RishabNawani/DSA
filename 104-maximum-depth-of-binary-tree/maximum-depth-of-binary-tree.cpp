@@ -18,5 +18,26 @@ public:
         int rr=maxDepth(root->right);
 
         return 1 + max(ll,rr);
+        
+/*
+        queue<TreeNode*> qq;
+        qq.push(root);
+        int height=0;
+
+        while(!qq.empty()){
+            int lvl=qq.size();
+
+            for(int i=0;i<lvl;i++){
+                TreeNode* rrr= qq.front();
+                qq.pop();
+
+                if(rrr->left!=nullptr) qq.push(rrr->left);
+                if(rrr->right!=nullptr) qq.push(rrr->right);
+            }
+            height++;
+        }
+
+        return height;
+        */
     }
 };
