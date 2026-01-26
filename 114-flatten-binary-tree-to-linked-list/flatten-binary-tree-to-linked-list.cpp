@@ -13,6 +13,25 @@ class Solution {
 public:
     TreeNode* prev=nullptr;
     void flatten(TreeNode* root) {
+        TreeNode* curr=root;
+        while(curr){
+            if(curr->left){
+                TreeNode* rightt= curr->left;
+                while(rightt->right){
+                    rightt=rightt->right;
+                }
+
+                rightt->right=curr->right;
+                curr->right=curr->left;
+                curr->left=nullptr;
+            }
+            curr=curr->right;
+        }
+
+
+        /*
+        here we take the reverse preorder approach in our recursion to execute what we desire
+        
         if(!root) return ;
 
         flatten(root->right);
@@ -21,5 +40,6 @@ public:
         root->right=prev;
         root->left=nullptr;
         prev=root;
+        */
     }
 };
