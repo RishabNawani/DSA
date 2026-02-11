@@ -28,7 +28,6 @@ public:
                     image[r][c]=color;
                     qq.push({r,c});
                 }
-
             }
 
         }
