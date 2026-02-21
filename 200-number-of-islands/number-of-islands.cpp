@@ -22,7 +22,7 @@ public:
                         for(int i=0;i<4;i++){
                             int r=nrow+drow[i];
                             int c=ncol+dcol[i];
-                            qq.push({r,c});
+                            if(r>=0 && r<n && c>=0 && c<m && grid[r][c]=='1') qq.push({r,c});
                         }
                     }
                     cnt++;
