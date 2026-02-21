@@ -25,7 +25,6 @@ public:
                             qq.push({r,c});
                         }
                     }
-
                     cnt++;
                 }
             }
