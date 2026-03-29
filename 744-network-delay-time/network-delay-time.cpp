@@ -26,6 +26,5 @@ public:
         }
         int ans=*max_element(dist.begin()+1,dist.end());
         return ans==INT_MAX?-1 : ans;
-
     }
 };
