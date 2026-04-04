@@ -43,28 +43,21 @@ public:
             vector<pair<int, pair<int,int>>>,
             greater<pair<int, pair<int,int>>>
         > pq;
-
         vector<vector<int>> vis(n, vector<int>(n, 0));
-        
         pq.push({grid[0][0], {0, 0}});
-        
         int drow[] = {-1, 0, 1, 0};
         int dcol[] = {0, 1, 0, -1};
-        
         while (!pq.empty()) {
             auto it = pq.top();
             pq.pop();
-            
             int t = it.first;
             int r = it.second.first;
             int c = it.second.second;
-            
             if (r == n - 1 && c == n - 1)
                 return t;
-            
+                
             if (vis[r][c]) continue;
             vis[r][c] = 1;
-            
             for (int i = 0; i < 4; i++) {
                 int nr = r + drow[i];
                 int nc = c + dcol[i];
