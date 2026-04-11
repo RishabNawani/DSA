@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int lcs(string &s, string &t){
+        int n=s.size();
+        int m=t.size();
+        vector<vector<int>> dp(n+1,vector<int>(m+1,0));
+        for(int i=0;i<=n;i++) dp[i][0]=0;
+        for(int j=0;j<=m;j++) dp[0][j]=0;
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if(s[i-1]==t[j-1]) dp[i][j]=1+dp[i-1][j-1];// imagine a matrix , each index representing the length of the subsequence before that , now if common , then the subsequences are attached so we add from the diagonal , we solve like they are a substring till this part.
+                else dp[i][j]=max(dp[i-1][j],dp[i][j-1]);// we check the neighbours , except diagonal to see the last longest subsequence , as they can be disconnected . If it was a substring , then would have set it as 0.
+            }
+        }
+        return dp[n][m];
+    }
+    int minDistance(string word1, string word2) {
+        int k=lcs(word1, word2);
+        return word1.size()+word2.size()-2*k;
+    }
+};
