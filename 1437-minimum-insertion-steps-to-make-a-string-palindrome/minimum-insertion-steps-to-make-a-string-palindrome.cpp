@@ -1,5 +1,11 @@
 class Solution {
 public:
+
+/*
+👉 You want to keep the longest part that is already a palindrome
+👉 And insert characters for the rest
+*/
+
     int lcs(string &s, string &t){
         int n=s.size();
         int m=t.size();
