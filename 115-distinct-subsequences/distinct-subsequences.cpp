@@ -17,6 +17,7 @@ public:
 
 /* tabulation solution gives runtime error when using int and long long , so use double*/
     int numDistinct(string s, string t) {
+        /*
         int n=s.size();
         int m=t.size();
         vector<vector<double>> dp(n+1,vector<double>(m+1,0));
@@ -35,6 +36,21 @@ public:
         }
 
         return (int)dp[n][m];
+        */
+        int n=s.size();
+        int m=t.size();
+        vector<double> dp(m+1,0);
+        dp[0]=1;
+        for(int i=1;i<=n;i++){
+            for(int j=m;j>=1;j--){
+                if(s[i-1]==t[j-1]){
+                    dp[j]=dp[j]+dp[j-1];
+                }
+            }
+        }
+
+        return (int)dp[m];
+
         //return f(s,t,n-1,m-1,dp);
     }
 };
