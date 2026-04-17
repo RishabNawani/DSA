@@ -1,8 +1,26 @@
 class Solution {
 public:
+    int f(int i, int b, vector<int>& prices ,vector<vector<int>> &dp,int &fee){
+        int n=prices.size();
+        if(i==n) return 0;
+        int profit=0;
+        if(dp[i][b]!=-1) return dp[i][b];
+        if(b){
+            profit=max(-prices[i]+f(i+1,0,prices,dp,fee),f(i+1,1,prices,dp,fee));
+        }
+        else{
+            profit=max(prices[i]+f(i+1,1,prices,dp,fee)-fee,f(i+1,0,prices,dp,fee));
+        }
+
+        return dp[i][b]=profit;
+    }
     int maxProfit(vector<int>& prices, int fee) {
         int n=prices.size();
+        vector<vector<int>> dp(n,vector<int>(2,-1));
+        return f(0,1,prices,dp,fee);
+        /*
         vector<vector<int>> dp(n+1,vector<int>(2,0));
+
        
         for(int i=n-1;i>=0;i--){
             for(int b=0;b<2;b++){
@@ -18,5 +36,6 @@ public:
         }
 
         return (int)dp[0][1];
+        */
     }
 };
