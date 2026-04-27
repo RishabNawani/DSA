@@ -8,6 +8,7 @@ public:
         }
         return true;
     }
+    /*
     int f(string &s,int i,int n,vector<int> &dp){
         if(i==n) return 0;
         if(dp[i]!=-1) return dp[i];
@@ -20,9 +21,23 @@ public:
         }
         return dp[i]=cst;
     }
+    */
     int minCut(string s) {
         int n=s.size();
-        vector<int> dp(n,-1);
-        return f(s,0,n,dp)-1;
+        //vector<int> dp(n,-1);
+        //return f(s,0,n,dp)-1;
+        vector<int> dp(n+1,0);
+        for(int i=n-1;i>=0;i--){
+            int cst=INT_MAX;
+            for(int j=i;j<n;j++){
+                if(ispalin(i,j,s)){
+                    int cost=1+dp[j+1];
+                    cst=min(cst,cost);
+                }
+            }
+            dp[i]=cst;
+        }
+
+        return dp[0]-1;
     }
 };
