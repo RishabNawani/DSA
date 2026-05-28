@@ -9,13 +9,10 @@ public:
         for(rot; rot<a; rot++){
             rotate(b.begin(), b.begin()+1,b.end());
             if(nums==b){
-                 std::cout<< "The number of rotations required are : "<< rot<< std::endl;
-                 return true;
+                return true;
             }
         }
         
-        
-        std::cout<<"The number of rotations required are : 0"<<std::endl;
         return false;
 
 
