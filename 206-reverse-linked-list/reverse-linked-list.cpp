@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-
+/// recursive approach
         if(head==NULL || head->next==NULL){
             return head;
         }
@@ -24,7 +24,7 @@ public:
         return newheadd;
 
     /*
-
+///   without using stack or vector approach, using temp approach
         ListNode* prev=NULL;
         ListNode* temp=head;
         while(temp!=NULL){
