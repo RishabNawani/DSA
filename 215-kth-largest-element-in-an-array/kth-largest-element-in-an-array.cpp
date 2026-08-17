@@ -1,6 +1,6 @@
 class Solution {
 public:
-
+/*
     void heapify(vector<int>& nums,int n, int i){
         int largest=i;
         int left=2*i+1;
@@ -30,5 +30,16 @@ public:
 
         return nums[0];
 
-    }   
+    }
+    */ 
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+
+        for(int num: nums){
+            pq.push(num);
+            if(pq.size()>k) pq.pop();
+        }
+
+        return pq.top();
+    }  
 };
