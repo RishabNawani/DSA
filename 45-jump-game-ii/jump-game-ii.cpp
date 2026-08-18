@@ -14,6 +14,7 @@ public:
         int jumpp=0;
         int far=0;
         int curr=0;
+        int n=nums.size();
 
         for(int i=0;i<nums.size()-1;i++){
             far=max(far,i+nums[i]);
@@ -23,6 +24,7 @@ public:
                 curr=far;
             }
 
+            if(curr==n-1) break;
         }
 
         return jumpp;
