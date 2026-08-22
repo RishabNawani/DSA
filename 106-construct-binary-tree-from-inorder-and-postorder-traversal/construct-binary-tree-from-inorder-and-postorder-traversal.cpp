@@ -16,7 +16,7 @@ public:
 
         TreeNode* root=new TreeNode(postorder[pend]);
 
-        int inroot=mapp[postorder[pend]];
+        int inroot=mapp[root->val];
 
         int leftt=inroot-is;
 
