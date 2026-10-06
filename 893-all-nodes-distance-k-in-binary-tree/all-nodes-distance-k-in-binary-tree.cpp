@@ -9,6 +9,7 @@
  */
 class Solution {
 public:
+/*
     void marking(TreeNode* root, unordered_map<TreeNode*,TreeNode*> &parentt){
         queue<TreeNode*> quee;
         quee.push(root);
@@ -27,9 +28,69 @@ public:
             }
         }
     }
-    
+    */
+
+    void marking(TreeNode* root,unordered_map<TreeNode*, TreeNode*> &parentt){
+        queue<TreeNode*> qq;
+        qq.push(root);
+        while(!qq.empty()){
+            TreeNode* q=qq.front();
+            qq.pop();
+
+            if(q->left!=NULL){
+                parentt[q->left]=q;
+                qq.push(q->left);
+            }
+            
+            if(q->right!=NULL){
+                parentt[q->right]=q;
+                qq.push(q->right);
+            }
+        }
+    }
 
     vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
+        unordered_map<TreeNode*, TreeNode*> parentt;
+        marking(root,parentt);
+        unordered_map<TreeNode*,bool> visitedd;
+        queue<TreeNode*> qq;
+
+        qq.push(target);
+        visitedd[target]=true;
+        int dist=0;
+
+        while(!qq.empty()){
+            int sizee=qq.size();
+            if(dist++==k) break;
+
+            for(int i=0;i<sizee;i++){
+                TreeNode* nn=qq.front();
+                qq.pop();
+
+                if(nn->left && !visitedd[nn->left]){
+                    visitedd[nn->left]=true;
+                    qq.push(nn->left);
+                }
+                if(nn->right && !visitedd[nn->right]){
+                    visitedd[nn->right]=true;
+                    qq.push(nn->right);
+                }
+
+                if(parentt[nn] && !visitedd[parentt[nn]]){
+                    visitedd[parentt[nn]]=true;
+                    qq.push(parentt[nn]);
+                }
+            }
+        }
+
+        vector<int> ress;
+        while(!qq.empty()){
+            ress.push_back(qq.front()->val);
+            qq.pop();
+        }
+        return ress;
+
+        /*
         unordered_map<TreeNode*, TreeNode*> parentt;
         marking(root,parentt);
 
@@ -74,6 +135,7 @@ public:
         }
 
         return result;
+        */
 
     }
 };
